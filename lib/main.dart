@@ -34,7 +34,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -47,8 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(widget.title,
-        style: Theme.of(context).textTheme.headline6,),
+        title: Text(
+          widget.title,
+          style: Theme.of(context).textTheme.headline6,
+        ),
       ),
       body: Center(
         child: Column(
@@ -57,18 +58,12 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               'Hi, This is\nSubrota Debnath',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headline3,
+              style: Theme.of(context).textTheme.headline3,
               textAlign: TextAlign.center,
             ),
             Text(
               'Select a theme',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyText1,
+              style: Theme.of(context).textTheme.bodyText1,
               textAlign: TextAlign.center,
             ),
             Container(
@@ -83,14 +78,14 @@ class _MyHomePageState extends State<MyHomePage> {
                           print('Tap on index $index');
                           if (index == 0) {
                             context.read<ThemeCubit>().darkTheme();
-                          } else if(index==1) {
+                          } else if (index == 1) {
                             context.read<ThemeCubit>().lightTheme();
-                          }else{
+                          } else {
                             context.read<ThemeCubit>().defaultTheme(context);
                           }
                         },
                         child: Card(
-                          elevation:2,
+                          elevation: 2,
                           margin: EdgeInsets.only(left: 20, right: 20, top: 8),
                           child: Container(
                             padding: EdgeInsets.all(8),
@@ -98,23 +93,27 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
+                                Radio(
+                                  value: index == state.status.index,
+                                  groupValue: true,
+                                  onChanged: (v) {},
+                                ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     ItemList().themes[index],
-                                    style: Theme
-                                        .of(context)
-                                        .textTheme
-                                        .bodyText2,
+                                    style:
+                                        Theme.of(context).textTheme.bodyText2,
                                   ),
                                 ),
-                                Visibility(
-                                  visible: index == state.status.index,
-                                  child: Icon(
-                                    Icons.check,
-                                    color: Colors.green,
-                                  ),
-                                ),
+
+                                // Visibility(
+                                //   visible: index == state.status.index,
+                                //   child: Icon(
+                                //     Icons.check,
+                                //     color: Colors.green,
+                                //   ),
+                                // ),
                               ],
                             ),
                           ),
