@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Hi This is\nSubrota Debnath',
+              'Hi, This is\nSubrota Debnath',
               style: Theme
                   .of(context)
                   .textTheme
