@@ -9,10 +9,10 @@ abstract class ThemeState {
 }
 
 class ThemeInitial extends ThemeState {
-  ThemeInitial()
+  ThemeInitial(Brightness brightness)
       : super(
-            themeData:ThemeData.light(),
-            status: ThemeStatus.light);
+            themeData:brightness== Brightness.dark? ThemeData.dark(): ThemeData.light(),
+            status: ThemeStatus.systemDefault);
 }
 
 class ThemeDark extends ThemeState {

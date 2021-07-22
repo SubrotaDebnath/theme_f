@@ -5,7 +5,7 @@ import 'package:theme_f/theme_status.dart';
 part 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
-  ThemeCubit() : super(ThemeInitial());
+  ThemeCubit(Brightness brightness) : super(ThemeInitial(brightness));
 
   void darkTheme() => emit(ThemeDark());
   void lightTheme() => emit(ThemeLight());
